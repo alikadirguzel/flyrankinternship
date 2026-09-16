@@ -1,0 +1,38 @@
+{
+  "lane": "refresh_content_opportunity_scoring",
+  "rule_plain": "visible and stale; rank by days since last update",
+  "score_formula": "stale * visible * days_since_last_update",
+  "thresholds": {
+    "days_since_last_update_min": 90,
+    "impressions_90d_min": 500
+  },
+  "reason_code_when_flagged": "stale_visible_page",
+  "action_label_when_flagged": "refresh",
+  "n_rows": 30000,
+  "n_flagged": 6575,
+  "base_rate": 0.542067,
+  "precision_flagged": 0.616426,
+  "precision_at_10": 0.9,
+  "precision_at_20": 0.8,
+  "precision_at_50": 0.86,
+  "precision_at_50_volume_only": 0.42,
+  "signal_verdicts": {
+    "staleness_refresh_flags": "MIXED",
+    "volume_quick_win": "MIXED"
+  },
+  "features_used_in_score": [
+    "days_since_last_update",
+    "impressions_90d"
+  ],
+  "excluded_from_score": [
+    "trend_direction",
+    "trend_pct",
+    "impressions_last_30d",
+    "impressions_prev_30d",
+    "clicks_last_30d",
+    "clicks_prev_30d",
+    "sessions_last_30d",
+    "sessions_prev_30d"
+  ],
+  "csv_path": "work/outputs/baseline_action_score.csv"
+}
